@@ -1,6 +1,6 @@
 import * as TypeGraphQL from "type-graphql";
 
-export enum RestaurantsScalarFieldEnum {
+export enum RestaurantScalarFieldEnum {
   id = "id",
   name = "name",
   rating = "rating",
@@ -13,7 +13,7 @@ export enum RestaurantsScalarFieldEnum {
   year = "year",
   cuisine = "cuisine"
 }
-TypeGraphQL.registerEnumType(RestaurantsScalarFieldEnum, {
-  name: "RestaurantsScalarFieldEnum",
+TypeGraphQL.registerEnumType(RestaurantScalarFieldEnum, {
+  name: "RestaurantScalarFieldEnum",
   description: undefined,
 });

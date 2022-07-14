@@ -5,7 +5,7 @@ generator client {
 generator typegraphql {
   provider = "typegraphql-prisma"
   emitOnly = "models"
-  output   = "../prisma/generated/type-graphql"
+  output   = "../prisma/generated/"
 }
 
 datasource db {
@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model restaurants {
+model Restaurant {
   id       BigInt  @id
   name     String
   rating   BigInt
@@ -27,4 +27,5 @@ model restaurants {
   cuisine  String
 
   @@index([id], map: "ix_restaurants_id")
+  @@map("restaurants")
 }

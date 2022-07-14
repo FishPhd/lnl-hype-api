@@ -1,3 +1,3 @@
 export { QueryMode } from "./QueryMode";
-export { RestaurantsScalarFieldEnum } from "./RestaurantsScalarFieldEnum";
+export { RestaurantScalarFieldEnum } from "./RestaurantScalarFieldEnum";
 export { SortOrder } from "./SortOrder";

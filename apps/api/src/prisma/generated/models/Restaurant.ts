@@ -3,10 +3,10 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
 
-@TypeGraphQL.ObjectType("Restaurants", {
+@TypeGraphQL.ObjectType("Restaurant", {
   isAbstract: true
 })
-export class Restaurants {
+export class Restaurant {
   @TypeGraphQL.Field(_type => GraphQLScalars.BigIntResolver, {
     nullable: false
   })
