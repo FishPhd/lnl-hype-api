@@ -6,7 +6,7 @@
     "serve": "nx serve",
     "build": "tsc --build apps/api/",
     "test": "nx test",
-    "start":  "node dist/out-tsc/apps/api/src/main.js"
+    "start":  "tsc --build apps/api/ && node dist/out-tsc/apps/api/src/main.js"
   },
   "private": true,
   "dependencies": {
