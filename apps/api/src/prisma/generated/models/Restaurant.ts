@@ -33,32 +33,32 @@ export class Restaurant {
   img!: string;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  link!: string;
+  link?: string | null;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
   location!: string;
 
-  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
-    nullable: true
-  })
-  lat?: number | null;
-
-  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
-    nullable: true
-  })
-  long?: number | null;
-
-  @TypeGraphQL.Field(_type => GraphQLScalars.BigIntResolver, {
-    nullable: false
-  })
-  year!: bigint;
-
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
   cuisine!: string;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  lat!: number;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: false
+  })
+  long!: number;
+
+  @TypeGraphQL.Field(_type => GraphQLScalars.BigIntResolver, {
+    nullable: true
+  })
+  year?: bigint | null;
 }

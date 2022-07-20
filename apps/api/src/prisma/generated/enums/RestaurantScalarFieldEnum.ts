@@ -8,10 +8,10 @@ export enum RestaurantScalarFieldEnum {
   img = "img",
   link = "link",
   location = "location",
+  cuisine = "cuisine",
   lat = "lat",
   long = "long",
-  year = "year",
-  cuisine = "cuisine"
+  year = "year"
 }
 TypeGraphQL.registerEnumType(RestaurantScalarFieldEnum, {
   name: "RestaurantScalarFieldEnum",
