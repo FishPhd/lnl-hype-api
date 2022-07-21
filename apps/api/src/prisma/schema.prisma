@@ -9,23 +9,36 @@ generator typegraphql {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Restaurant {
   id       BigInt  @id
-  name     String
-  rating   BigInt
-  guide    String
-  img      String
+  name     String?
+  rating   BigInt?
+  guide    String?
+  img      String?
   link     String?
-  location String
-  cuisine  String
-  lat      Float
-  long     Float
+  location String?
+  cuisine  String?
+  lat      Float?
+  long     Float?
   year     BigInt?
+  diners   Diner[] @relation("diners")
 
-  @@map("restaurants")
   @@index([id], map: "ix_restaurants_id")
+  @@map("restaurants")
+}
+
+model Diner {
+  id           BigInt     @id @default(autoincrement())
+  restaurantId BigInt     @map("restaurant_id")
+  name         String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  restaurant   Restaurant @relation("diners", fields: [restaurantId], references: [id])
+
+  @@map("diners")
 }

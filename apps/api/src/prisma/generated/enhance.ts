@@ -41,7 +41,8 @@ function applyTypeClassEnhanceConfig<
 }
 
 const modelsInfo = {
-  Restaurant: ["id", "name", "rating", "guide", "img", "link", "location", "cuisine", "lat", "long", "year"]
+  Restaurant: ["id", "name", "rating", "guide", "img", "link", "location", "cuisine", "lat", "long", "year"],
+  Diner: ["id", "restaurantId", "name", "createdAt", "updatedAt"]
 };
 
 type ModelNames = keyof typeof models;

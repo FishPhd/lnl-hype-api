@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
+import { Diner } from "../models/Diner";
 
 @TypeGraphQL.ObjectType("Restaurant", {
   isAbstract: true
@@ -13,24 +14,24 @@ export class Restaurant {
   id!: bigint;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  name!: string;
+  name?: string | null;
 
   @TypeGraphQL.Field(_type => GraphQLScalars.BigIntResolver, {
-    nullable: false
+    nullable: true
   })
-  rating!: bigint;
+  rating?: bigint | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  guide!: string;
+  guide?: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  img!: string;
+  img?: string | null;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
@@ -38,27 +39,32 @@ export class Restaurant {
   link?: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  location!: string;
+  location?: string | null;
 
   @TypeGraphQL.Field(_type => String, {
-    nullable: false
+    nullable: true
   })
-  cuisine!: string;
+  cuisine?: string | null;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
-    nullable: false
+    nullable: true
   })
-  lat!: number;
+  lat?: number | null;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
-    nullable: false
+    nullable: true
   })
-  long!: number;
+  long?: number | null;
 
   @TypeGraphQL.Field(_type => GraphQLScalars.BigIntResolver, {
     nullable: true
   })
   year?: bigint | null;
+
+  @TypeGraphQL.Field(_type => [Diner], {
+    nullable: true
+  })
+  diners?: Diner[];
 }
